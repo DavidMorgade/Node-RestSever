@@ -49,8 +49,11 @@ const usersPost = async (req = request, res = response) => {
 };
 const usersDelete = async (req, res = response) => {
   const { id } = req.params;
-
-  const user = await User.findByIdAndUpdate(id, { state: false });
+  const user = await User.findByIdAndUpdate(
+    id,
+    { state: false },
+    { new: true }
+  );
 
   res.json(user);
 };

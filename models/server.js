@@ -10,6 +10,8 @@ class Server {
     this.connectDB();
     //Routes User
     this.usersPath = '/api/users';
+    //User auth
+    this.authPath = '/api/auth';
     //Middlewares
     this.middlewares();
     //Routes
@@ -27,6 +29,7 @@ class Server {
     this.app.use(express.static('public'));
   }
   routes() {
+    this.app.use(this.authPath, require('../routes/auth.routes'));
     this.app.use(this.usersPath, require('../routes/user.routes'));
   }
   listen() {
