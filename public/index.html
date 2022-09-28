@@ -35,7 +35,7 @@
       function handleCredentialResponse(response) {
         const body = { id_token: response.credential };
         fetch(
-          'https://restserver-template-david.herokuapp.com//api/auth/google',
+          'https://restserver-template-david.herokuapp.com/api/auth/google',
           {
             method: 'POST',
             headers: {
